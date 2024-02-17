@@ -1,11 +1,13 @@
 import useImages from "@/hooks/useImages";
+import useCurrentUser from "@/hooks/useUser";
 import Image from "next/image";
-import { AspectRatio } from "./ui/aspect-ratio";
 
 const Gallary = () => {
-  const { data: images } = useImages("33aac4c1-be9e-44c9-88ef-8c04e9437b46");
+  const { data: currentUser } = useCurrentUser();
 
-  return !images ? (
+  const { data: images } = useImages(currentUser?.id);
+
+  return !images || images.length == 0 ? (
     <>
       <div className="flex justify-center">
         <div>

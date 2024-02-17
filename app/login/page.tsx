@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
@@ -37,7 +38,7 @@ export default function Login() {
   }, [email, password, router]);
 
   return (
-    <div className="flex content-center items-center justify-center h-screen">
+    <div className="flex flex-col content-center items-center justify-center h-screen">
       <div className="flex flex-col gap-2 w-1/4  items-center border-slate-600 border-[1px] p-4 rounded-md">
         <div className="pb-4">
           <h2>Login</h2>
@@ -57,6 +58,15 @@ export default function Login() {
         <Button disabled={loading} size="form" onClick={handleSubmit}>
           Sign In
         </Button>
+      </div>
+
+      <div className="py-2">
+        <p className="text-slate-400 font-light text-sm">
+          Don't have an account?{" "}
+          <Link className="text-blue-600" href={"/register"}>
+            Sign Up
+          </Link>
+        </p>
       </div>
     </div>
   );

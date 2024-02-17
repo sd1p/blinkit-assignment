@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import toast from "react-hot-toast";
@@ -42,7 +43,7 @@ export default function Login() {
   }, [email, password, username, router]);
 
   return (
-    <div className="flex  content-center items-center justify-center h-screen">
+    <div className="flex flex-col  content-center items-center justify-center h-screen">
       <div className="flex flex-col gap-2 w-1/4  items-center border-slate-600 border-[1px] p-4 rounded-md">
         <div className="pb-4">
           <h2>Create an account</h2>
@@ -69,6 +70,15 @@ export default function Login() {
         <Button size="form" disabled={loading} onClick={handleSubmit}>
           Sign Up
         </Button>
+      </div>
+
+      <div className="py-2">
+        <p className="text-slate-400 font-light text-sm">
+          Already have an account?{" "}
+          <Link className="text-blue-600" href={"/login"}>
+            Login In
+          </Link>
+        </p>
       </div>
     </div>
   );
