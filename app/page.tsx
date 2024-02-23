@@ -3,7 +3,6 @@ import Gallary from "@/components/Gallary";
 import Header from "@/components/Header";
 import Spinner from "@/components/Spinner";
 import { useSession } from "next-auth/react";
-import { Spinnaker } from "next/font/google";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
